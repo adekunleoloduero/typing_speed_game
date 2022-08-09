@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typix</title>
+    <script src="./index.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,14 +22,15 @@
             <li>Click "Play" to start again.</li>
         </ol>
 
-        <div id="quote">
-            <h3>Quote</h3>
+        
+        <div id="quote-board" style="width: 100%; height: 300px; background-color: black; color: white;">
+            <h3>Quote</h3>    
         </div>
 
         <form action="">
             <div class="form-group">
-                <label for="response">Your Response</label><br>
-                <input type="text" id="response" name="response" placeholder="Start typing here...">
+                <label for="player-response">Your Response</label><br>
+                <input type="text" id="player-response" name="player-response" placeholder="Start typing here...">
             </div>
             
             <div class="form-group">
