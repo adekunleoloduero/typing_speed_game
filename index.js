@@ -36,15 +36,27 @@ function generateRandomQuotes(e) {
  * @param {*} randomQuote 
  */
 function displayRandomQuote(randomQuote) {
-    const quote = document.createElement('p');
-    quote.classList.add('quote');
-    quote.id = 'quote';
-    quote.textContent = randomQuote;
-    quoteBoard.append(quote);
-    // document.body.append(quote);
-    console.log(quoteBoard);
-    console.log(quote);
+    removePreviousValue('#quote-board #quote');
+
+    const newQuote = document.createElement('p');
+    newQuote.classList.add('quote');
+    newQuote.id = 'quote';
+    newQuote.textContent = randomQuote;
+    quoteBoard.append(newQuote);
+    playerResponse.focus();
 }
+
+
+function removePreviousValue(target, val) {
+    const toRemove = document.querySelector(target);
+    if (toRemove !== null) {
+       if (val == undefined) {
+           toRemove.remove();
+       } else {
+           toRemove.value = "";
+       }
+    }
+} 
 
 playButton.addEventListener('click', generateRandomQuotes);
 
