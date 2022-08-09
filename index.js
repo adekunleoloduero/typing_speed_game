@@ -37,6 +37,7 @@ function generateRandomQuotes(e) {
  */
 function displayRandomQuote(randomQuote) {
     removePreviousValue('#quote-board #quote');
+    removePreviousValue('#player-response', 'x');
 
     const newQuote = document.createElement('p');
     newQuote.classList.add('quote');
