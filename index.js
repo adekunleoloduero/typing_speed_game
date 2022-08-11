@@ -22,6 +22,7 @@ let matchedSection = '';
 
 //Global variables for the quote matiching section
 let  quoteSections;
+let sectionIndex;
 
  
  //This sections contains code that generate and display a random quote.
@@ -58,7 +59,7 @@ function displayRandomQuote(randomQuote) {
 
     //Split original quote into sections
     quoteSections = newQuote.textContent.split(' ');
-    
+
     playerResponse.focus();
 }
 
@@ -84,6 +85,7 @@ playButton.addEventListener('click', generateRandomQuotes);
 
 function startTyping(e) {
     e.preventDefault();
+    
     
     // let 
     let wordToMatch = getNextToMatch();
@@ -111,18 +113,16 @@ function highlightNextWord(wordToMatch) {
 }
 
 
-const getNextToMatch = () => {
-    const stringFromQuote = document.querySelector('#quote-board #quote').textContent;
-    const WordsFromQuote = stringFromQuote.split(" ");
-    let nextToMatch;
+const getSection = () => {
+    let section;
 
-    while (nextToMatchIndex < WordsFromQuote.length) {
-        nextToMatch = WordsFromQuote[nextToMatchIndex];
-        nextToMatchIndex += 1;
+    while (sectionIndex < quoteSections.length) {
+        section = quoteSections[sectionIndex];
+        sectionIndex += 1;
         break;
     }
-    return nextToMatch;
+    return section;
 }
 
-playerResponse.addEventListener('keydown', startTyping);
+playerResponse.addEventListener('focus', startTyping);
 //End of section
