@@ -19,6 +19,10 @@ let currentWordMatched = false;
 let nextToMatchIndex = 0;
 let matchedSection = '';
 
+
+//Global variables for the quote matiching section
+let  quoteSections;
+
  
  //This sections contains code that generate and display a random quote.
 
@@ -51,6 +55,10 @@ function displayRandomQuote(randomQuote) {
     newQuote.id = 'quote';
     newQuote.textContent = randomQuote;
     quoteBoard.append(newQuote);
+
+    //Split original quote into sections
+    quoteSections = newQuote.textContent.split(' ');
+    
     playerResponse.focus();
 }
 
