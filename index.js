@@ -17,6 +17,7 @@ const playerResponse = document.querySelector('#player-response');
 //Global variables for the quote matiching section
 let quoteSections;
 let sectionIndex;
+let highletedSectionIndex;
 let matchedSections = '';
 let nextSection;
 
@@ -94,7 +95,7 @@ function startTyping(e) {
     if (playerResponse.value == quote.textContent) {
         console.log('Success!');
         playerResponse.blur();
-        
+
     }
     //Append a space to each section coming from the quotesSection array except the last one
     if (sectionIndex !== quoteSections.length - 1) {
@@ -129,9 +130,10 @@ function highlightNextSection(nextSection, target) {
         leftOfNextSection = originalQuote.substring(0, originalQuote.length - nextSection.length);
         rightOfNextSection = '';
     } else if (sectionIndex > 0 && sectionIndex < quoteSections.length - 1) {
-        let indexOfSection = originalQuote.indexOf(nextSection);
-        leftOfNextSection = originalQuote.substring(0, indexOfSection);
-        rightOfNextSection = originalQuote.substring(indexOfSection + nextSection.length, originalQuote.length);
+        // highletedSectionIndex = originalQuote.indexOf(nextSection);
+        highletedSectionIndex = originalQuote.indexOf(nextSection);
+        leftOfNextSection = originalQuote.substring(0, highletedSectionIndex);
+        rightOfNextSection = originalQuote.substring(highletedSectionIndex + nextSection.length, originalQuote.length);
     }
 
     const highlightedQuote = document.createElement('p');
