@@ -16,7 +16,7 @@ const playerResponse = document.querySelector('#player-response');
 
 //Global variables for the quote matiching section
 let quoteSections;
-let sectionIndex = 0;
+let sectionIndex;
 let matchedSections = '';
 let nextSection;
 
@@ -96,26 +96,41 @@ function startTyping(e) {
         nextSection = quoteSections[sectionIndex];
     }
     
+    //Highlight next section to be matched
     highlightNextSection(nextSection, '#quote-board #quote');
     let sectionsToMatch = `${matchedSections}${nextSection}`;
 
     if ((playerResponse.value == sectionsToMatch)) {
         matchedSections = sectionsToMatch;
-        console.log(playerResponse.value, sectionsToMatch);
         typeNextSection();
     }
     
-    console.log(sectionIndex);
-    //Highlight next section to be matched
+    
 }
 
 
 function highlightNextSection(nextSection, target) {
-    const originalQuote = document.querySelector(target).textContent;
+    const originalQuote = document.querySelector(target).textContent.toString();
+    // console.log(indexOfSection);
+    console.log(sectionIndex);
+    let leftOfNextSection;
+    let rightOfNextSection;
+    
+    if (sectionIndex === 0) {
+       leftOfNextSection = '';
+       rightOfNextSection = originalQuote.substring(nextSection.length, originalQuote.length);
+    } else if (sectionIndex === quoteSections.length - 1)  {
+        leftOfNextSection = originalQuote.substring(0, originalQuote.length - nextSection.length);
+        rightOfNextSection = '';
+    } else if (sectionIndex > 0 && sectionIndex < quoteSections.length - 1) {
+        let indexOfSection = originalQuote.indexOf(nextSection);
+        leftOfNextSection = originalQuote.substring(0, indexOfSection);
+        rightOfNextSection = originalQuote.substring(indexOfSection + nextSection.length, originalQuote.length);
+    }
+
     const highlightedQuote = document.createElement('p');
     highlightedQuote.id = 'quote';
-    const sections = originalQuote.split(`${nextSection}`);
-    highlightedQuote.innerHTML = `${sections[0]}<span id="next-section" style="color: blue; font-size: 24px;">${nextSection}</span>${sections[1]}`
+    highlightedQuote.innerHTML = `${leftOfNextSection}<span id="next-section" style="color: blue; font-size: 24px;">${nextSection}</span>${rightOfNextSection}`;
     removePreviousValue(target);
     quoteBoard.append(highlightedQuote);
 }
