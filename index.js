@@ -91,6 +91,11 @@ function startTyping(e) {
         return;  
     }
 
+    if (playerResponse.value == quote.textContent) {
+        console.log('Success!');
+        playerResponse.blur();
+        
+    }
     //Append a space to each section coming from the quotesSection array except the last one
     if (sectionIndex !== quoteSections.length - 1) {
         nextSection = `${quoteSections[sectionIndex]} `;
@@ -105,7 +110,7 @@ function startTyping(e) {
     if ((playerResponse.value == sectionsToMatch)) {
         matchedSections = sectionsToMatch;
         typeNextSection();
-    }
+    } 
     
     
 }
@@ -113,7 +118,6 @@ function startTyping(e) {
 
 function highlightNextSection(nextSection, target) {
     const originalQuote = document.querySelector(target).textContent.toString();
-    // console.log(indexOfSection);
     console.log(sectionIndex);
     let leftOfNextSection;
     let rightOfNextSection;
@@ -145,5 +149,5 @@ function typeNextSection() {
     }
 }
 
-playerResponse.addEventListener('keypress', startTyping);
+playerResponse.addEventListener('keyup', startTyping);
 // //End of section
