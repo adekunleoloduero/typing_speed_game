@@ -21,6 +21,7 @@ let matchedSections = '';
 let nextSection;
 
  
+
  //This sections contains code that generate and display a random quote.
 
 /**
@@ -36,8 +37,9 @@ function generateRandomQuotes(e) {
     let randomIndex = Math.floor(Math.random() * quotes.length);
     randomQuote = quotes[randomIndex];
     displayRandomQuote(randomQuote);
-    //Reset sectionIndex to zero
-    sectionIndex = 0
+    //Reset previous values
+    sectionIndex = 0;
+    matchedSections = "";
 }
 
 
