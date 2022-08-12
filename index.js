@@ -22,7 +22,6 @@ let matchedSections = '';
 let nextSection;
 
  
-
  //This sections contains code that generate and display a random quote.
 
 /**
@@ -38,6 +37,7 @@ function generateRandomQuotes(e) {
     let randomIndex = Math.floor(Math.random() * quotes.length);
     randomQuote = quotes[randomIndex];
     displayRandomQuote(randomQuote);
+
     //Reset previous values
     sectionIndex = 0;
     matchedSections = "";
@@ -60,7 +60,6 @@ function displayRandomQuote(randomQuote) {
 
     //Split original quote into sections
     quoteSections = newQuote.textContent.split(' ');
-
     playerResponse.focus();
 }
 
@@ -153,3 +152,4 @@ function typeNextSection() {
 
 playerResponse.addEventListener('keyup', startTyping);
 // //End of section
+
