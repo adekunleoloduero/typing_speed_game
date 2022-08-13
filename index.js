@@ -137,7 +137,7 @@ function highlightNextSection(nextSection, target) {
 
     const highlightedQuote = document.createElement('p');
     highlightedQuote.id = 'quote';
-    highlightedQuote.innerHTML = `${leftOfNextSection}<span id="next-section" style="color: blue; font-size: 24px;">${nextSection}</span>${rightOfNextSection}`;
+    highlightedQuote.innerHTML = `${leftOfNextSection}<span id="next-section">${nextSection}</span>${rightOfNextSection}`;
     removePreviousValue(target);
     quoteBoard.append(highlightedQuote);
 }

@@ -9,9 +9,9 @@
     <script src="./index.js" defer></script>
 </head>
 <body>
-    <header>
+    <header class="main-part">
         <h1>TYPIX</h1>
-    </header class="main-part">
+    </header>
 
     <main class="container main-part">
         <p>Typix is a simple typing game that presents the player with a random quote and measures the time taken by the player to type it out accurately.</p>
@@ -24,14 +24,14 @@
         </ol>
 
         
-        <div id="quote-board" style="width: 100%; height: 300px; background-color: black; color: white;">
-            <h3>Quote</h3>    
+        <div id="quote-board" class="quote-board">
+            <h3 style="text-align: center; color: white; text-decoration: underline; font-size: 1.4em; margin-bottom: 0.7em;">Quote</h3>    
         </div>
 
         <form action="">
-            <div class="form-group">
-                <label for="player-response">Your Response</label><br>
-                <input type="text" id="player-response" name="player-response" placeholder="Start typing here...">
+            <div class="form-group player-response">
+                <label for="player-response">Your Response</label><br><br>
+                <input type="text" id="player-response" name="player-response" placeholder="Start typing here..." class="form-field">
             </div>
             
             <div class="form-group">
