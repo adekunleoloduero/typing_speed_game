@@ -93,3 +93,19 @@ main {
 #play:hover {
     background-color: rgb(250, 129, 108);
 }
+
+footer {
+    text-align: center;
+    color: tomato;
+    font-size: 1.1em;
+}
+
+#author {
+    font-weight: bold;
+}
+
+h1 {
+    color: tomato;
+    text-align: center;
+}
+
