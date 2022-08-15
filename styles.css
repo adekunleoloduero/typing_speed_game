@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-background: rgb(62, 62, 153);
+    --space-between-parts-body: 2.1rem;
+    --space-between-componenets-main: 2.1em;
+    --panel-width: 60%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-part {
+    width: 100%;
+}
+
+header, footer {
+    padding: 1.6rem;
+}
+
+header, footer, .quote-board {
+    background-color: var(--main-background);
+}
+
+header {
+    margin-bottom: var(--space-between-parts-body);    
+}
+
+main {
+    margin-bottom: var(--space-between-parts-body);
+}
+
+#quote-board, form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#quote-board {
+    padding: 1.1rem;
+    min-height: 300px;
+    border-radius: 20px;
+    border: none;
+    margin-bottom: var(--space-between-componenets-main);
+}
+
+#quote {
+    color: tomato;
+    font-size: 2.5em;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#next-section {
+    padding: 0.1em;
+    background-color: yellow;
+    border: none;
+}
+
+/*Styling the form elements*/
+.form-group {
+    width: 100%;
+}
+
+.player-response {
+    margin-bottom: 1.5em;
+}
+
+.form-field {
+    width: 100%;
+    padding: 1.2em;
+    font-size: 1.3em;
+    border-radius: 10px;
+    color: tomato;
+    outline: 2px solid tomato;
+    border: none;
+}
+
+#play {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    padding: 1.1em;
+    border: none;
+    background-color: tomato;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#play:hover {
+    background-color: rgb(250, 129, 108);
+}
+
+footer {
+    text-align: center;
+    color: tomato;
+    font-size: 1.1em;
+}
+
+
+/* header section {
+    display: flex;
+    justify-content: center;
+} */
+
+#author {
+    font-weight: bold;
+}
+
+
+h1 {
+    color: tomato;
+    text-align: center;
+    /* border: 1px solid red; */
+    font-size: 32px;
+}
+
+#instruct {
+    display: block;
+    margin-left: auto;
+    margin-right: 10em;
+    padding: 10px;
+    border: 2px solid black;
+    margin-top: -36px;
+    background-color: var(--main-background);
+    font-size: 18px;
+}
+
+#instruct:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+
+/*Styles for the Instructions section*/
+.instructions-panel {
+    width: var(--panel-width);
+    margin: 0 auto;
+    padding: 1.7rem;
+    min-height: 300px;
+    border-radius: 20px;
+    border: none;
+    line-height: 2;
+    margin-top: var(--space-between-componenets-main);
+    background-color: var(--main-background);  
+    color: tomato;
+    margin-bottom: 2.1em; 
+}
