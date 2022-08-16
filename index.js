@@ -20,6 +20,7 @@ let sectionIndex;
 let highletedSectionIndex;
 let matchedSections = '';
 let nextSection;
+let startTime, endTime;
 
  
  //This sections contains code that generate and display a random quote.
@@ -41,6 +42,9 @@ function generateRandomQuotes(e) {
     //Reset previous values
     sectionIndex = 0;
     matchedSections = "";
+    //Remove previous message
+    removePreviousValue('#msg');
+    startTime = performance.now();
 }
 
 
@@ -92,9 +96,9 @@ function startTyping(e) {
     }
 
     if (playerResponse.value == quote.textContent) {
-        console.log('Success!');
+        endTime = performance.now();
+        displayCongratulatoryMessage();
         playerResponse.blur();
-
     }
     //Append a space to each section coming from the quotesSection array except the last one
     if (sectionIndex !== quoteSections.length - 1) {
@@ -111,8 +115,6 @@ function startTyping(e) {
         matchedSections = sectionsToMatch;
         typeNextSection();
     } 
-    
-    
 }
 
 
@@ -151,5 +153,31 @@ function typeNextSection() {
 }
 
 playerResponse.addEventListener('keyup', startTyping);
-// //End of section
+//End of section
 
+//This section keeps track of the amount of time taken by the
+//player to type the quote correctly. Displays the time with a 
+//Congratulatory message.
+// function startTimer() {
+//     startTime = performance.now();
+//     while (true) {
+//         if (matchedSections = playerResponse.value) {
+//             // console.log('Got here!');
+//             break;
+//         }
+//     }
+//     endTime = performance.now()
+// }
+
+
+function displayCongratulatoryMessage() {
+    const msg = document.createElement('p');
+    const form = document.querySelector('form');
+    const timeTaken = endTime - startTime;
+    msg.id = 'msg';
+    msg.innerHTML = `Congratulations, you finished typing the quote correctly in <span id="time-taken">${(timeTaken/1000).toFixed(2)}</span> seconds.`
+    form.prepend(msg);
+}
+
+
+//End of section

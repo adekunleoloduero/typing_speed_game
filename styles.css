@@ -137,6 +137,19 @@ h1 {
 }
 
 
+/*Congratulatory message after player wins*/
+#msg {
+    color: green;
+    margin-bottom: 1.3em;
+    font-size: 1.3em;
+}
+
+#time-taken {
+    color: tomato;
+    border-bottom: 2px solid tomato;
+}
+
+
 /*Styles for the Instructions section*/
 .instructions-panel {
     width: var(--panel-width);
