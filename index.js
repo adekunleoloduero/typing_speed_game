@@ -1,4 +1,30 @@
 
+window.onload = () => {
+
+    //Hide the instructions when page loads fro 1st time
+    const instructions = document.querySelector('#instructions-panel');   
+    instructions.style.display = 'none';
+}
+//End of section
+
+//Global variables
+let quoteSections;
+let sectionIndex;
+let highletedSectionIndex;
+let matchedSections = '';
+let nextSection;
+let startTime, endTime;
+
+
+//Get elements to target
+const playButton = document.querySelector('#play');
+const quoteBoard = document.querySelector('#quote-board');
+const playerResponse = document.querySelector('#player-response');
+const instructions = document.querySelector('#instructions-panel');
+const instructionsButton = document.querySelector('#instruct');
+const gamePanel = document.querySelector('#game-panel');
+const backButton = document.querySelector('#back');
+
 //Quotes database
 const quotesDatabase = [
     'They conquer, who believe they can.',
@@ -8,21 +34,6 @@ const quotesDatabase = [
 ]
 
 
-//Get elements to target
-const playButton = document.querySelector('#play');
-const quoteBoard = document.querySelector('#quote-board');
-const playerResponse = document.querySelector('#player-response');   
-
-
-//Global variables for the quote matiching section
-let quoteSections;
-let sectionIndex;
-let highletedSectionIndex;
-let matchedSections = '';
-let nextSection;
-let startTime, endTime;
-
- 
  //This sections contains code that generate and display a random quote.
 
 /**
@@ -155,20 +166,8 @@ function typeNextSection() {
 playerResponse.addEventListener('keyup', startTyping);
 //End of section
 
-//This section keeps track of the amount of time taken by the
-//player to type the quote correctly. Displays the time with a 
-//Congratulatory message.
-// function startTimer() {
-//     startTime = performance.now();
-//     while (true) {
-//         if (matchedSections = playerResponse.value) {
-//             // console.log('Got here!');
-//             break;
-//         }
-//     }
-//     endTime = performance.now()
-// }
-
+//This section display congratulatory message to the player after typign the quote
+//correctly
 
 function displayCongratulatoryMessage() {
     const msg = document.createElement('p');
@@ -179,5 +178,19 @@ function displayCongratulatoryMessage() {
     form.prepend(msg);
 }
 
+//End of section
 
+//This section contain codes that hide Game panel and display instructions
+//As well as codes that makes it possible to navigate back to the game panel.
+instructionsButton.addEventListener('click', () => {
+  gamePanel.style.display = "none";
+  instructions.style.display = "block";
+  instructionsButton.style.display = "none";
+});
+
+backButton.addEventListener('click', () => {
+    gamePanel.style.display = "block";
+    instructions.style.display = "none";
+    instructionsButton.style.display = "block";
+});
 //End of section
